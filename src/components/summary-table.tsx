@@ -6,7 +6,7 @@ export default function SummaryTable() {
     const allWinOrders = useCustomStore(useRewardnHPStore, (state: any) => state.allWinOrders)
     const total = useCustomStore(useMainStore, (state: any) => state.total)
     const currentAmount = useCustomStore(useMainStore, (state: any) => state.currentAmount)
-    const nidProfit = total * 0.2
+    const nidProfit = total * 0.27
     const paiProfit = allWinOrders - (total * 0.8)  // > 0 = pay pai, < 0 = pai pay  
     const remainAmount = total - currentAmount
 
