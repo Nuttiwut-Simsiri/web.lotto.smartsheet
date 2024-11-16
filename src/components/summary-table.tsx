@@ -19,14 +19,14 @@ export default function SummaryTable() {
                     <tr className={header_css}>
                         <th className="">ยอดรวมทั้งหมด</th>
                         <th className="">รายได้</th>
-                        <th className="">ยอดที่ต้องจ่ายปาย</th>
+                        <th className=""> { paiProfit < 0 ? "โอนให้ปาย" : "** ปายโอนให้เพิ่ม"}</th>
                         <th className="">ยอดปัจจุบัน</th>
                         <th className="">ค้างชำระ</th>
                         <th className="">ยอดถูกหวย</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr key={"header_"}>
+                    <tr>
                         <td className="input input-bordered text-white input-secondary w-full max-w-xs text-right font-extrabold">{total?.toLocaleString('en-US')}</td>
                         <td className="input input-bordered text-success input-secondary w-full max-w-xs text-right font-extrabold">{nidProfit?.toLocaleString('en-US')}</td>
                         <td className="input input-bordered text-purple-500 input-secondary w-full max-w-xs text-right bg-neutral font-extrabold">{paiProfit?.toLocaleString('en-US')}</td>
