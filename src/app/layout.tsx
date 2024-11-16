@@ -5,7 +5,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export const metadata = {
-  title: '::: LOTTO-SMARTSHEET ::: ',
+  title: '::: LOTTO-SMARTSHEET ::: V1.0.0',
   description: 'Developed by nothamkiller.eth',
 }
 
