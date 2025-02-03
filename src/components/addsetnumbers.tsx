@@ -28,7 +28,7 @@ const AddSetNumbers = () => {
             <button className="btn btn-lg btn-success px-10" onClick={() => onOpenModal()} data-toggle="modal" data-target="#set_number_modal">เพิ่มชุด</button>
             <dialog id="set_number_modal" className="modal" ref={modalRef}>
                 <form method="dialog" className="modal-box gap-8 w-10/12 max-w-4xl xs:w-11/12 xs:p-4">
-                    <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-2xl hover:bg-red-600">✕</button>
+                    <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-3xl hover:bg-red-600">✕</button>
                     <h1 className="text-2xl font-bold text-accent py-4 border-b-2 border-slate-200">เพิ่มแบบชุด</h1>
                     <div className="flex gap-4 pt-4 justify-between xs:flex-wrap">
                         <div className="flex gap-4 flex-col pt-8">

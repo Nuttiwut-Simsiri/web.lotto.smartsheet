@@ -5,7 +5,8 @@ import AddSetNumbers from "../components/addsetnumbers";
 import UserOrders from '@/components/user-orders';
 import NRow from "../components/nrow";
 import React, { useCallback, useRef } from 'react';
-import { toJpeg, toPng } from 'html-to-image';
+import { toJpeg } from 'html-to-image';
+import { toast } from 'react-toastify';
 
 
 
@@ -24,16 +25,21 @@ export default function Home() {
       return
     }
 
-    toJpeg(ref.current, {quality : 0.95, cacheBust : true })
+    toJpeg(ref.current, {quality : 0.98})
       .then((dataUrl) => {
+        const file_name = 'ss_'+name+'_.jpeg'
         const link = document.createElement('a')
-        link.download = 'ss_'+name+'_.png'
+        link.download = 'ss_'+name+'_.jpeg'
         link.href = dataUrl
         link.click()
+        toast.success("Screenshort Success ! "+ file_name);
       })
       .catch((err) => {
         console.log(err)
-      })
+        toast.error("Screenshort failed ! ");
+    })
+    
+    
   }, [ref])
 
 
@@ -57,7 +63,7 @@ export default function Home() {
           {/* Dialog box */}
           <button className="btn btn-lg px-2 btn-error" onClick={() => onShowRemoveAllOrderModal()}> ลบทั้งหมด </button>
           <dialog id="my_modal_1" className="modal" ref={modalRef}>
-            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-2xl hover:bg-red-600">✕</button>
+            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-3xl hover:bg-red-600">✕</button>
             <div className="modal-box">
               <form method="dialog">
                 {/* if there is a button in form, it will close the modal */}

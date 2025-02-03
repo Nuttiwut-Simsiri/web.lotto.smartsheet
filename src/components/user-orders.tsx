@@ -51,7 +51,7 @@ const UserOrders = ({ username , hColor }  : { username: string , hColor : strin
             <button className="btn btn-info btn-sm" onClick={() => onOpenModal()} data-toggle="modal" data-target="#edit_user_orders"> แก้ไข </button>
             <dialog id="edit_user_orders" className="modal" ref={modalRef}>
                 <form method="dialog" className="modal-box gap-8 w-8/12 max-w-4xl xs:w-11/12 xs:p-1">
-                    <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-2xl hover:bg-red-600">✕</button>
+                    <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-3xl hover:bg-red-600">✕</button>
                     <h1 className="text-2xl font-bold text-accent py-4 border-b-2 border-slate-200"> {headerName} </h1>
                     <div className="flex gap-4 pt-4 justify-between xs:flex-wrap">
                         <div className="flex gap-4 flex-col pt-8 xs:px-4">

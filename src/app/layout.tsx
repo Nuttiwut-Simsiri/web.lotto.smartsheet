@@ -24,8 +24,8 @@ export default function RootLayout({
         <Suspense fallback={null}>
           <BottomNavBar />
         </Suspense>
-        <ToastContainer position="top-right"
-          autoClose={1000}
+        <ToastContainer position="bottom-right"
+          autoClose={2000}
           hideProgressBar={false}
           newestOnTop={false}
           closeOnClick
