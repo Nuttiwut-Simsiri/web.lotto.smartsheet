@@ -337,6 +337,22 @@ export const useMainStore = create<OrderState>()(
                             },]
                         }));
                         break;
+                    
+                    case "บน+ล่าง+โต๊ด":
+                        set((state) => ({
+                            previewOrder: [{
+                                id: nanoid(),
+                                tm: timestamp,
+                                name: nOrder?.name,
+                                number: nOrder?.number,
+                                tod: nOrder?.price,
+                                top: nOrder?.price,
+                                bot: nOrder?.price,
+                                sum: 0,
+                                color: defaultColor
+                            },]
+                        }));
+                        break;
 
                     case "ล่าง":
                         set((state) => ({
@@ -418,6 +434,25 @@ export const useMainStore = create<OrderState>()(
                                     name: nOrder?.name,
                                     number: nEl,
                                     tod: 0,
+                                    top: nOrder?.price,
+                                    bot: nOrder?.price,
+                                    sum: 0,
+                                    color: defaultColor
+                                }
+                            })]
+                        }));
+                        break;
+                    
+                    case "ชุด (บน+ล่าง+โต๊ด)":
+
+                        set((state) => ({
+                            previewOrder: [...setNumber.map(nEl => {
+                                return {
+                                    id: nanoid(),
+                                    tm: timestamp,
+                                    name: nOrder?.name,
+                                    number: nEl,
+                                    tod: nOrder?.price,
                                     top: nOrder?.price,
                                     bot: nOrder?.price,
                                     sum: 0,

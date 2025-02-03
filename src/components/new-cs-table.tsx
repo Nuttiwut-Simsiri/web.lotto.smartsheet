@@ -9,20 +9,18 @@ export default function NewCSTable({ headers }: { headers: string[] }) {
     var topColStyle = "text-info"
     var todColStyle = "text-success"
     var botColStyle = "text-warning"
-    var checkBoxStyle = "checkbox checkbox-success checkbox-lg"
+    var checkBoxStyle = "checkbox checkbox-success checkbox-lg xs:checkbox-sm"
     return (
-        <div className="overflow-x-auto">
-            <table className="table table-zebra table-lg">
-                <thead>
-                    <tr className="bg-black">
+        <div className="overflow-x-auto px-8">
+            <table className="table table-zebra table-lg xs:table-sm">
+                <tbody>
+                    <tr className="bg-black text-xl xs:text-base">
                         {
                             headers.map((hName: string, index: number) => {
-                                return <th key={index} className=" text-gray-200 text-xl"> {hName} </th>
+                                return <th key={index} className=" text-gray-200 text-xl xs:text-base"> {hName} </th>
                             })
                         }
                     </tr>
-                </thead>
-                <tbody>
 
                     {
                         summaryOrders?.filter((el: any) => el.name).map((el: any, index: number) => {
@@ -31,7 +29,7 @@ export default function NewCSTable({ headers }: { headers: string[] }) {
                                     <td className={nameColStyle} >
                                         {el.name}
                                     </td>
-                                    <td  className="tooltip tooltip-info text-center" data-tip={el.number}>
+                                    <td className="tooltip tooltip-info text-center" data-tip={el.number}>
                                         XxxX
                                     </td>
                                     <td className={topColStyle}>{el.top ?? 0}</td>

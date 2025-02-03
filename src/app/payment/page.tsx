@@ -118,14 +118,14 @@ function nPermute(arr: string[]) {
 
   return (
     <>
-      <main className="flex min-h-screen flex-col items-center pt-20 pb-10 px-20">
+      <main className="flex flex-col min-h-screen items-center px-20 pt-10 xs:px-10">
         <div className='text-3xl font-semibold text-slate-100'> สรุปยอดคนถูก </div>
-        <div className="flex justify-between gap-16">
-          <div className="flex flex-col gap-6 pt-20">
+        <div className="flex justify-between gap-20 xs:flex-wrap xs:gap-4">
+          <div className="flex flex-col gap-6 pt-20 xs:pt-8 ">
             <div className="form-control">
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text block mb-2 text-lg font-medium text-gray-900 dark:text-info">เลข2 ตัว บน</span>
+                  <span className="label-text block mb-2 text-lg font-medium text-blue-500 dark:text-info">เลข2 ตัว บน</span>
                 </label>
                 <label className="input-group">
                   <input type="text" defaultValue={top2digit} placeholder="02" className="input border-slate-400 w-full max-w-xs placeholder-slate-700 text-white" maxLength={2} onChange={(ev) => setRewardDigit(ev.target.value, "top2digit")} />
@@ -133,7 +133,7 @@ function nPermute(arr: string[]) {
               </div>
 
               <label className="label">
-                <span className="label-text block mb-2 text-lg font-medium text-gray-900 dark:text-info">เลข2 ตัว ล่าง</span>
+                <span className="label-text block mb-2 text-lg font-medium text-blue-500 dark:text-info">เลข2 ตัว ล่าง</span>
               </label>
               <label className="input-group">
                 <input type="text" defaultValue={bot2digit} placeholder="56" className="input border-slate-400 w-full max-w-xs placeholder-slate-700 text-white" maxLength={2} onChange={(ev) => setRewardDigit(ev.target.value, "bot2digit")} />
@@ -143,7 +143,7 @@ function nPermute(arr: string[]) {
 
             <div className="form-control">
               <label className="label">
-                <span className="label-text block mb-2 text-lg font-medium text-gray-900 dark:text-info">เลข3 ตัว บน</span>
+                <span className="label-text block mb-2 text-lg font-medium text-blue-500 dark:text-info">เลข3 ตัว บน</span>
               </label>
               <label className="input-group">
                 <input type="text" defaultValue={top3digit} placeholder="123" className="input border-slate-400 w-full max-w-xs placeholder-slate-700 text-white" maxLength={3} onChange={(ev) => setRewardDigit(ev.target.value, "top3digit")} />
@@ -152,7 +152,7 @@ function nPermute(arr: string[]) {
 
             <div className="form-control">
               <label className="label">
-                <span className="label-text block mb-2 text-lg font-medium text-gray-900 dark:text-info">เลข3 ตัว ล่าง</span>
+                <span className="label-text block mb-2 text-lg font-medium text-blue-500 dark:text-info">เลข3 ตัว ล่าง</span>
               </label>
               <label className="input-group">
                 <input type="text" defaultValue={bot3digit1} placeholder="056" className="input border-slate-400 w-full max-w-xs placeholder-slate-700 text-white" maxLength={3} onChange={(ev) => setRewardDigit(ev.target.value, "bot3digit1")} />
@@ -160,7 +160,7 @@ function nPermute(arr: string[]) {
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text block mb-2 text-lg font-medium text-gray-900 dark:text-info">เลข3 ตัว ล่าง</span>
+                <span className="label-text block mb-2 text-lg font-medium text-blue-500 dark:text-info">เลข3 ตัว ล่าง</span>
               </label>
               <label className="input-group">
                 <input type="text" defaultValue={bot3digit2} placeholder="456" className="input border-slate-400 w-full max-w-xs placeholder-slate-700 text-white" maxLength={3} onChange={(ev) => setRewardDigit(ev.target.value, "bot3digit2")} />
@@ -170,11 +170,11 @@ function nPermute(arr: string[]) {
           <div>
             {/* header - 2 */}
             <div className="flex pt-20">
-              <input type="text" value={"ชื่อ"} className="input border text-white border-slate-300 bg-slate-700 w-full max-w-xs text-center text-lg" readOnly={true} />
-              <input type="text" value={"หมายเลข"} className="input border text-white border-slate-300 bg-slate-700 w-full max-w-xs text-center text-lg" readOnly={true} />
-              <input type="text" value={"ซื้อ"} className="input border text-white border-slate-300 bg-slate-700 w-full max-w-xs text-center text-lg" readOnly={true} />
-              <input type="text" value={"เลขอั้น"} className="input border text-white border-slate-300 bg-slate-700 w-full max-w-xs text-center text-lg" readOnly={true} />
-              <input type="text" value={"ยอดที่ถูก"} className="input border text-white border-slate-300 bg-slate-700 w-full max-w-xs text-center text-lg" readOnly={true} />
+              <input type="text" value={"ชื่อ"} className="input border text-white border-slate-300 bg-slate-700 w-full max-w-xs text-center text-lg xs:text-sm" readOnly={true} />
+              <input type="text" value={"หมายเลข"} className="input border text-white border-slate-300 bg-slate-700 w-full max-w-xs text-center text-lg xs:text-sm" readOnly={true} />
+              <input type="text" value={"ซื้อ"} className="input border text-white border-slate-300 bg-slate-700 w-full max-w-xs text-center text-lg xs:text-sm" readOnly={true} />
+              <input type="text" value={"เลขอั้น"} className="input border text-white border-slate-300 bg-slate-700 w-full max-w-xs text-center text-lg xs:text-sm" readOnly={true} />
+              <input type="text" value={"ยอดที่ถูก"} className="input border text-white border-slate-300 bg-slate-700 w-full max-w-xs text-center text-lg xs:text-sm" readOnly={true} />
             </div>
 
             {/* table - 2 */}

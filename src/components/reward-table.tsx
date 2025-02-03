@@ -21,20 +21,19 @@ export default function RewardsTable() {
         "top2Digit"
     ]
     return (
-        <div className="p-8">
-            <div className="overflow-x-auto">
+        <div className="overflow-x-auto p-2">
                 <table className="table table-zebra">
 
                     <thead>
                         <tr>
-                            <th className="p-4 text-white text-xl text-center font-bold border border-slate-300" colSpan={2}> ราคาจ่าย </th>
+                            <th className="p-2 text-white text-xl text-center font-bold border border-slate-300" colSpan={2}> ราคาจ่าย </th>
                         </tr>
                     </thead>
                     <tbody >
                         {
                             formattedTable?.map((row: string[], i: number) => {
                                 return (
-                                    <tr key={i + "_rtr"} className="p-4 text-white text-xl text-center font-bold border border-slate-300">
+                                    <tr key={i + "_rtr"} className="p-2 text-white text-xl xs:text-base text-center font-bold border border-slate-300">
                                         {
                                             row.map((el: string, j: number) => {
                                                 return j == 0 ?
@@ -58,7 +57,6 @@ export default function RewardsTable() {
                     </tbody>
                 </table>
             </div>
-        </div>
 
     )
 }

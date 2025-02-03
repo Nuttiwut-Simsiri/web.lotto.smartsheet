@@ -50,14 +50,14 @@ const UserOrders = ({ username , hColor }  : { username: string , hColor : strin
         <>
             <button className="btn btn-info btn-sm" onClick={() => onOpenModal()} data-toggle="modal" data-target="#edit_user_orders"> แก้ไข </button>
             <dialog id="edit_user_orders" className="modal" ref={modalRef}>
-                <form method="dialog" className="modal-box gap-8 w-8/12 max-w-4xl">
-                    <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-2xl">✕</button>
+                <form method="dialog" className="modal-box gap-8 w-8/12 max-w-4xl xs:w-11/12 xs:p-1">
+                    <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-2xl hover:bg-red-600">✕</button>
                     <h1 className="text-2xl font-bold text-accent py-4 border-b-2 border-slate-200"> {headerName} </h1>
-                    <div className="flex gap-4 pt-4 justify-between">
-                        <div className="flex gap-4 flex-col pt-8">
+                    <div className="flex gap-4 pt-4 justify-between xs:flex-wrap">
+                        <div className="flex gap-4 flex-col pt-8 xs:px-4">
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text block mb-2 text-lg font-medium text-gray-900 dark:text-info">ชื่อ</span>
+                                    <span className="label-text block mb-2 text-lg font-medium text-blue-500 dark:text-info">ชื่อ</span>
                                 </label>
                                 <label className="input-group">
                                     <input type="text" placeholder="ชื่อ" className="input input-bordered w-full max-w-xs placeholder-slate-700" defaultValue={username}  disabled={true}/>
@@ -65,7 +65,7 @@ const UserOrders = ({ username , hColor }  : { username: string , hColor : strin
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text block mb-2 text-lg font-medium text-gray-900 dark:text-info">หมายเลข</span>
+                                    <span className="label-text block mb-2 text-lg font-medium text-blue-500 dark:text-info">หมายเลข</span>
                                 </label>
                                 <label className="input-group">
                                     <input type="text" placeholder="00" className="input input-bordered w-full max-w-xs placeholder-slate-700" minLength={2} maxLength={3} defaultValue={newOrders?.number} onChange={(ev) => editNewOrder({ number: ev.target.value })} />
@@ -73,7 +73,7 @@ const UserOrders = ({ username , hColor }  : { username: string , hColor : strin
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text block mb-2 text-lg font-medium text-gray-900 dark:text-info">จำนวนเงิน</span>
+                                    <span className="label-text block mb-2 text-lg font-medium text-blue-500 dark:text-info">จำนวนเงิน</span>
                                 </label>
                                 <label className="input-group">
                                     <span>จำนวน</span>
@@ -81,28 +81,30 @@ const UserOrders = ({ username , hColor }  : { username: string , hColor : strin
                                     <span>THB</span>
                                 </label>
                             </div>
-                            <label className="block mb-2 text-lg font-medium text-gray-900 dark:text-info"> เลขชุด</label>
+                            <label className="block mb-2 text-lg font-medium text-blue-500 dark:text-info"> เลขชุด</label>
                             <select className="select select-ghost w-full max-w-xs" defaultValue={newOrders?.setType} onChange={(ev) => editNewOrder({ setType: ev.target.value, color : hColor })}>
-                                <option disabled>เลือกชุด</option>
+                            <option disabled>เลือกชุด</option>
                                 <option>บน</option>
-                                <option>บน+ล่าง</option>
-                                <option>บน+โต๊ด</option>
                                 <option>โต๊ด</option>
                                 <option>ล่าง</option>
+                                <option>บน+ล่าง</option>
+                                <option>บน+โต๊ด</option>
+                                <option>บน+ล่าง+โต๊ด</option>
                                 <option>ชุด (บน)</option>
+                                <option>ชุด (ล่าง)</option>
+                                <option>ชุด (โต๊ด)</option>
                                 <option>ชุด (บน+ล่าง)</option>
                                 <option>ชุด (บน+โต๊ด)</option>
-                                <option>ชุด (โต๊ด)</option>
-                                <option>ชุด (ล่าง)</option>
+                                <option>ชุด (บน+ล่าง+โต๊ด)</option>
                             </select>
                         </div>
-                        <div className="flex flex-col items-center">
+                        <div className="flex flex-col items-center gap-4">
                             <div className="text-2xl font-bold text-accent text-center"> รายการสั่งซื้อ </div>
-                            <div className="overflow-x-auto pt-4">
-                                <table className="table">
+                            <div className="overflow-x-auto">
+                                <table className="table xs:table-sm">
                                     {/* header */}
                                     <thead>
-                                        <tr className="text-lg bg-slate-800">
+                                        <tr className="text-lg bg-slate-800 xs:text-base">
                                             <th>ชื่อ</th>
                                             <th>หมายเลข</th>
                                             <th>บน</th>
@@ -129,7 +131,7 @@ const UserOrders = ({ username , hColor }  : { username: string , hColor : strin
                                             })
                                         }
                                         <tr>
-                                            <th colSpan={2} className="text-lg font-bold text-accent"> ตัวอย่างก่อนเพิ่ม </th>
+                                            <th colSpan={3} className="text-lg font-bold text-accent"> ตัวอย่างก่อนเพิ่ม </th>
                                             <td> </td>
                                             <td> </td>
                                             <td> </td>
@@ -159,9 +161,9 @@ const UserOrders = ({ username , hColor }  : { username: string , hColor : strin
 
                     </div>
 
-                    <div className="pt-8 flex justify-between items-center">
-                        <button className="btn btn-wide btn-success font-extrabold text-green-900 text-xl" onClick={ (ev) => handleAddOrder(ev) }> เพิ่ม </button>
-                        <button className="btn btn-wide btn-info font-extrabold text-slate-100 text-xl" onClick={ () =>  handleOK() }> ตกลง </button>
+                    <div className="pt-8 flex justify-between items-center xs:flex-wrap xs:justify-center xs:gap-4">
+                        <button className="btn btn-wide btn-success font-extrabold text-green-900 text-xl xs:text-base" onClick={ (ev) => handleAddOrder(ev) }> เพิ่ม </button>
+                        <button className="btn btn-wide btn-info font-extrabold text-slate-100 text-xl xs:text-base" onClick={ () =>  handleOK() }> ตกลง </button>
                     </div>
                 </form>
             </dialog>

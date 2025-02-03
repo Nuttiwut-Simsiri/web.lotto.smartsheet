@@ -4,7 +4,9 @@ import { useMainStore } from '@/hooks/useMainStore';
 import AddSetNumbers from "../components/addsetnumbers";
 import UserOrders from '@/components/user-orders';
 import NRow from "../components/nrow";
-import { useRef } from 'react';
+import React, { useCallback, useRef } from 'react';
+import { toJpeg, toPng } from 'html-to-image';
+
 
 
 export default function Home() {
@@ -15,6 +17,27 @@ export default function Home() {
   const changeColor = useMainStore((state) => state.changeColor)
   const removeOrder = useMainStore((state) => state.removeOrder)
   const removeAllOrder = useMainStore((state) => state.removeAllOrder)
+
+  const ref = useRef<HTMLDivElement>(null)
+  const onCapture = useCallback((name: string) => {
+    if (ref.current === null) {
+      return
+    }
+
+    toJpeg(ref.current, {quality : 0.95, cacheBust : true })
+      .then((dataUrl) => {
+        const link = document.createElement('a')
+        link.download = 'ss_'+name+'_.png'
+        link.href = dataUrl
+        link.click()
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }, [ref])
+
+
+  const table_header_css = "dark:text-white border-slate-300 bg-slate-700 w-full max-w-xs text-center text-xl xs:text-sm"
 
   const modalRef = useRef(null);
   const onShowRemoveAllOrderModal = () => {
@@ -27,10 +50,10 @@ export default function Home() {
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center p-24 gap-8">
-      <div className='flex flex-row w-full justify-between'>
+    <main className="flex min-h-screen flex-col items-center px-10 pt-20 gap-6 xs:gap-4 xs:pt-12 xs:px-4">
+      <div className='flex flex-row w-full justify-between xs:flex-wrap xs:gap-8 xs:justify-center'>
         <div className='text-3xl font-semibold text-white'>ตารางการซื้อขาย </div>
-        <div className="flex flex-row justify-self-end gap-2 items-center">
+        <div className="flex flex-row justify-self-end gap-2 items-center xs:py-4">
           {/* Dialog box */}
           <button className="btn btn-lg px-2 btn-error" onClick={() => onShowRemoveAllOrderModal()}> ลบทั้งหมด </button>
           <dialog id="my_modal_1" className="modal" ref={modalRef}>
@@ -57,11 +80,11 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex justify-between gap-8 flex-wrap xl:flex-nowrap">
+      <div className="flex justify-around gap-8 flex-wrap xl:flex-nowrap pb-20">
         <div className="flex flex-col gap-4">
           <div>
-            <label className="block mb-2 text-lg font-medium text-gray-900 dark:text-info"> ตัวกรอง </label>
-            <select className="select select-ghost w-full max-w-xs min-w-[200px]" defaultValue={filterKeyword} onChange={(ev) => changeKeyword(ev.target.value)}>
+            <label className="block mb-2 text-lg font-medium text-blue-500 dark:text-info"> ตัวกรอง </label>
+            <select className="select select-ghost w-full max-w-xs min-w-[200px] xs:min-w-[100px] text-base" defaultValue={filterKeyword} onChange={(ev) => changeKeyword(ev.target.value)}>
               <option disabled >เลือกรายชื่อที่จะแสดงผล</option>
               <option> ทั้งหมด</option>
               {
@@ -92,16 +115,17 @@ export default function Home() {
 
 
         </div>
-        <div className="flex flex-col items-top">
+        <div className="flex flex-col" ref={ref} >
           <div className="flex">
-            <input type="text" value={"ชื่อ"} className="input border dark:text-white border-slate-300 bg-slate-700 w-full max-w-xs text-center text-xl" readOnly={true} />
-            <input type="text" value={"หมายเลข"} className="input border dark:text-white border-slate-300 bg-slate-700 w-full max-w-xs text-center text-xl" readOnly={true} />
-            <input type="text" value={"บน"} className="input border dark:text-white border-slate-300 bg-slate-700 w-full max-w-xs text-center text-xl" readOnly={true} />
-            <input type="text" value={"โต๊ด"} className="input border dark:text-white border-slate-300 bg-slate-700 w-full max-w-xs text-center text-xl" readOnly={true} />
-            <input type="text" value={"ล่าง"} className="input border dark:text-white border-slate-300 bg-slate-700 w-full max-w-xs text-center text-xl" readOnly={true} />
-            <input type="text" value={"รวม"} className="input border dark:text-white border-slate-300 bg-slate-700 w-full max-w-xs text-center text-xl" readOnly={true} />
-            <input type="text" value={""} className="input border dark:text-white border-slate-300 bg-slate-700 w-full max-w-[100px] text-center text-xl" readOnly={true} />
+            <input type="text" value={"ชื่อ"} className="input border dark:text-white border-slate-300 bg-slate-700 w-full max-w-xs text-center text-xl xs:text-xs" readOnly={true} />
+            <input type="text" value={"หมายเลข"} className="input border dark:text-white border-slate-300 bg-slate-700 w-full max-w-xs text-center text-xl xs:text-xs" readOnly={true} />
+            <input type="text" value={"บน"} className="input border dark:text-white border-slate-300 bg-slate-700 w-full max-w-xs text-center text-xl xs:text-xs" readOnly={true} />
+            <input type="text" value={"โต๊ด"} className="input border dark:text-white border-slate-300 bg-slate-700 w-full max-w-xs text-center text-xl xs:text-xs" readOnly={true} />
+            <input type="text" value={"ล่าง"} className="input border dark:text-white border-slate-300 bg-slate-700 w-full max-w-xs text-center text-xl xs:text-xs" readOnly={true} />
+            <input type="text" value={"รวม"} className="input border dark:text-white border-slate-300 bg-slate-700 w-full max-w-xs text-center text-xl xs:text-xs" readOnly={true} />
+            <button className="btn dark:text-white border-slate-300 bg-slate-700 w-full max-w-[100px] xs:max-w-[40px] text-xl xs:text-xs text-center" onClick={ () => onCapture(filterKeyword)}> SS </button>
           </div>
+
           {
             filterKeyword == "ทั้งหมด" ?
               orders?.map((rowData: any, index: number) => {
