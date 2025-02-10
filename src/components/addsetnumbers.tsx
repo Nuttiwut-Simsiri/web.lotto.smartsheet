@@ -112,7 +112,7 @@ const AddSetNumbers = () => {
 
                     </div>
 
-                    <div className="pt-8 flex justify-end items-center">
+                    <div className="p-4 flex justify-end items-center">
                         <button className="btn btn-wide btn-success font-extrabold text-black text-xl" onClick={() => addOrder()}> เพิ่ม </button>
                     </div>
                 </form>

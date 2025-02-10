@@ -50,7 +50,7 @@ const UserOrders = ({ username , hColor }  : { username: string , hColor : strin
         <>
             <button className="btn btn-info btn-sm" onClick={() => onOpenModal()} data-toggle="modal" data-target="#edit_user_orders"> แก้ไข </button>
             <dialog id="edit_user_orders" className="modal" ref={modalRef}>
-                <form method="dialog" className="modal-box gap-8 w-8/12 max-w-4xl xs:w-11/12 xs:p-1">
+                <form method="dialog" className="modal-box gap-8 w-8/12 max-w-4xl xs:w-11/12 xs:p-4 pb-8">
                     <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-3xl hover:bg-red-600">✕</button>
                     <h1 className="text-2xl font-bold text-accent py-4 border-b-2 border-slate-200"> {headerName} </h1>
                     <div className="flex gap-4 pt-4 justify-between xs:flex-wrap">
@@ -161,7 +161,7 @@ const UserOrders = ({ username , hColor }  : { username: string , hColor : strin
 
                     </div>
 
-                    <div className="pt-8 flex justify-between items-center xs:flex-wrap xs:justify-center xs:gap-4">
+                    <div className="p-4 flex justify-between items-center xs:flex-wrap xs:justify-center xs:gap-4">
                         <button className="btn btn-wide btn-success font-extrabold text-green-900 text-xl xs:text-base" onClick={ (ev) => handleAddOrder(ev) }> เพิ่ม </button>
                         <button className="btn btn-wide btn-info font-extrabold text-slate-100 text-xl xs:text-base" onClick={ () =>  handleOK() }> ตกลง </button>
                     </div>
